@@ -5,7 +5,8 @@ from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 from wxcloudrun import send_requests
-
+import logging
+logger = logging.getLogger('log')
 
 @app.route('/')
 def index():
@@ -69,6 +70,7 @@ def get_count():
 
 @app.route("/api/gpt-3", methods=["POST"])
 def generate_text():
+    logger.info("entry")
     data = request.json
     msg = data["msg"]
     return send_requests.send_requests(msg)
