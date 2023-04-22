@@ -10,7 +10,7 @@ def send_requests(msg: str) -> str:
     if not msg:
         print("no msg inside")
         return ""
-    api_key = "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"
+    api_key = "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"
     url = "https://api.openai.com/v1/chat/completions"
     headers = {"Content-Type": "application/json",
                "Authorization": "Bearer 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"}
