@@ -25,6 +25,10 @@ def count():
     # 获取请求体参数
     params = request.get_json()
 
+    if 'msg' in params:
+        msg = params["msg"]
+        return send_requests.send_requests(msg)
+
     # 检查action参数
     if 'action' not in params:
         return make_err_response('缺少action参数')
