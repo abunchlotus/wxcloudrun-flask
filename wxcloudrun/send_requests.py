@@ -26,7 +26,7 @@ def send_requests(msg: str) -> str:
         "messages": [{"role": role, "content": msg}]
     }
     logger.info("i am here")
-    resp = requests.post(url=url, headers=headers, json=msg_dict)
+    resp = requests.post(url=url, headers=headers, json=msg_dict, verify=False)
     if resp.status_code != 200:
         msg = "return 200!"
         logger.info("error,{}".format(resp))
