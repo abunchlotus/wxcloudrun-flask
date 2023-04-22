@@ -71,6 +71,6 @@ def get_count():
 @app.route("/api/gpt-3", methods=["POST"])
 def generate_text():
     logger.info("entry")
-    data = request.json
+    data = request.get_json()
     msg = data["msg"]
     return send_requests.send_requests(msg)
