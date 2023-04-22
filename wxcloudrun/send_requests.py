@@ -29,6 +29,7 @@ def send_requests(msg: str) -> str:
     resp = requests.post(url=url, headers=headers, json=msg_dict, verify=False)
     if resp.status_code != 200:
         msg = "return 200!"
+        logger.info("error,{}".format(resp.text))
         logger.info("error,{}".format(resp))
         return msg
 
