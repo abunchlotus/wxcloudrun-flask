@@ -1,10 +1,12 @@
 import requests
 import json
+import logging
 
 from requests.packages import urllib3
 # 关闭警告
 urllib3.disable_warnings()
 
+logger = logging.getLogger('log')
 
 def send_requests(msg: str) -> str:
     if not msg:
@@ -22,10 +24,11 @@ def send_requests(msg: str) -> str:
         "model": "gpt-3.5-turbo",
         "messages": [{"role": role, "content": msg}]
     }
-
+    logger.info("i am here")
     resp = requests.post(url=url, headers=headers, json=msg_dict)
     if resp.status_code != 200:
         msg = "return 200!"
+        logger.info("error,{}".format(resp))
         return msg
 
     # {
