@@ -13,7 +13,8 @@ def send_requests(msg: str) -> str:
         print("no msg inside")
         return ""
     api_key = "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"
-    url = "https://api.openai.com/v1/chat/completions"
+    #url = "https://api.openai.com/v1/chat/completions"
+    url = "http://www.dqszlishuqiang.com:8080"
     headers = {"Content-Type": "application/json",
                "Authorization": "Bearer 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"}
 
