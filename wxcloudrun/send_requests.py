@@ -14,7 +14,7 @@ def send_requests(msg: str) -> str:
         return ""
     api_key = "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"
     #url = "https://api.openai.com/v1/chat/completions"
-    url = "http://www.dqszlishuqiang.com:8080"
+    url = "http://43.157.28.126:8081/v1/chat/completions"
     headers = {"Content-Type": "application/json",
                "Authorization": "Bearer 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"}
 
