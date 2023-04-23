@@ -12,11 +12,11 @@ def send_requests(msg: str) -> str:
     if not msg:
         print("no msg inside")
         return ""
-    api_key = "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"
+    #api_key = "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"
     #url = "https://api.openai.com/v1/chat/completions"
-    url = "https://43.157.28.126:8081/v1/chat/completions"
+    url = "https://www.dqszlishuqiang.com:8081/v1/chat/completions"
     headers = {"Content-Type": "application/json",
-               "Authorization": "Bearer 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"}
+               "Authorization": "Bearer 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"}
 
     temperature = 0.1
     role = "user"
