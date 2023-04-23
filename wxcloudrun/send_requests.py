@@ -16,7 +16,7 @@ def send_requests(msg: str) -> str:
     #url = "https://api.openai.com/v1/chat/completions"
     url = "https://www.dqszlishuqiang.com:8081/v1/chat/completions"
     headers = {"Content-Type": "application/json",
-               "Authorization": "Bearer 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"}
+               "Authorization": "Bearer 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"}
 
     temperature = 0.1
     role = "user"
