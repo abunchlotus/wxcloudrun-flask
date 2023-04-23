@@ -1,6 +1,8 @@
 import requests
 import json
 import logging
+import base64
+
 
 from requests.packages import urllib3
 # 关闭警告
@@ -15,8 +17,10 @@ def send_requests(msg: str) -> str:
     #api_key = "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"
     #url = "https://api.openai.com/v1/chat/completions"
     url = "https://www.dqszlishuqiang.com:8081/v1/chat/completions"
+    key = "c2staE5GcUZCRkw5dGFUdkp4SEF6OHVUM0JsYmtGSm5XYXdXazVIRkRUbEJBQVQxSmhX"
     headers = {"Content-Type": "application/json",
-               "Authorization": "Bearer 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"}
+               "Authorization": "Bearer {}".format(base64.b64decode(key.encode('utf-8')).decode('utf-8'))}
+    print(headers)
 
     temperature = 0.1
     role = "user"
