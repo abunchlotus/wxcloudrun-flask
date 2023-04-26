@@ -36,12 +36,17 @@ def send_requests(msg: str) -> str:
         logger.error("error,{}".format(resp.text))
         logger.error("error,{}".format(resp))
         return msg
-
+    logger.error("i am here1")
     resp_content = resp.content
+    logger.error("i am here2")
     resp_content_dict = json.loads(resp_content)
+    logger.error("i am here3")
     choices_dict = resp_content_dict["choices"]
+    logger.error("i am here4")
     message_dict = choices_dict[0].get("message")
+    logger.error("i am here5")
     real_content = message_dict["content"]
+    logger.error("i am here6")
     return real_content
 
 
