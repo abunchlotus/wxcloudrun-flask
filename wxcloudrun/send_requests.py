@@ -29,32 +29,13 @@ def send_requests(msg: str) -> str:
         "model": "gpt-3.5-turbo",
         "messages": [{"role": role, "content": msg}]
     }
-    logger.info("i am here")
+    logger.error("i am here")
     resp = requests.post(url=url, headers=headers, json=msg_dict, verify=False)
     if resp.status_code != 200:
         msg = "return 200!"
-        logger.info("error,{}".format(resp.text))
-        logger.info("error,{}".format(resp))
+        logger.error("error,{}".format(resp.text))
+        logger.error("error,{}".format(resp))
         return msg
-
-    # {
-    #     "id": "chatcmpl-123",
-    #     "object": "chat.completion",
-    #     "created": 1677652288,
-    #     "choices": [{
-    #         "index": 0,
-    #         "message": {
-    #             "role": "assistant",
-    #             "content": "\n\nHello there, how may I assist you today?",
-    #         },
-    #         "finish_reason": "stop"
-    #     }],
-    #     "usage": {
-    #         "prompt_tokens": 9,
-    #         "completion_tokens": 12,
-    #         "total_tokens": 21
-    #     }
-    # }
 
     resp_content = resp.content
     resp_content_dict = json.loads(resp_content)
@@ -65,6 +46,6 @@ def send_requests(msg: str) -> str:
 
 
 if __name__ == "__main__":
-    a = send_requests("长沙市今天的天气怎么样")
+    a = send_requests("你知道特斯拉吗")
     print(a)
 
