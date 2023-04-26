@@ -47,6 +47,7 @@ def send_requests(msg: str) -> str:
     logger.error("i am here5")
     real_content = message_dict["content"]
     logger.error("i am here6")
+    logger.error(resp.text)
     return real_content
 
 
