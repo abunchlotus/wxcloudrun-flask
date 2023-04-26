@@ -27,7 +27,9 @@ def count():
 
     if 'msg' in params:
         msg = params["msg"]
-        return send_requests.send_requests(msg)
+        res = send_requests.send_requests(msg)
+        logger.error(res)
+        return res
 
     # 检查action参数
     if 'action' not in params:
