@@ -53,5 +53,5 @@ def send_requests(msg: str) -> str:
 
 if __name__ == "__main__":
     a = send_requests("你知道特斯拉吗")
-    print(a)
+    print(len(a))
 
