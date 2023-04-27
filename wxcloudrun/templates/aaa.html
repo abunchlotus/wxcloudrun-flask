@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask-SocketIO Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var socket = io.connect("http://127.0.0.1:8886");
+
+            socket.on("on_open", function(msg) {
+                console.log("on_open: " + msg);
+            });
+
+            socket.on("message", function(msg) {
+                console.log("Received message: " + msg);
+            });
+
+            document.getElementById("sendButton").addEventListener("click", function() {
+                var message = document.getElementById("messageInput").value;
+                socket.send(message);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="messageInput" placeholder="Type your message">
+    <button id="sendButton">Send</button>
+</body>
+</html>

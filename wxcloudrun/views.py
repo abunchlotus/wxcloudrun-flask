@@ -1,10 +1,11 @@
 from datetime import datetime
 from flask import render_template, request
-from wxcloudrun import app
+from wxcloudrun import app, socketio
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 from wxcloudrun import send_requests
+from flask_socketio import emit
 import logging
 logger = logging.getLogger('log')
 
@@ -80,3 +81,19 @@ def generate_text():
     data = request.get_json()
     msg = data["msg"]
     return send_requests.send_requests(msg)
+
+@socketio.on('connect')
+def handle_connect():
+    logger.error('Client connected')
+    emit('on_open', '成功连接到服务器')
+
+
+@socketio.on('message')
+def handle_message(message):
+    logger.error(f"Received message: {message}")
+    emit('message', message)
+
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    logger.error('Client disconnected')

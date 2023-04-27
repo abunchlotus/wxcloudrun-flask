@@ -10,7 +10,7 @@ pymysql.install_as_MySQLdb()
 # 初始化web应用
 app = Flask(__name__, instance_relative_config=True)
 app.config['DEBUG'] = config.DEBUG
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode="eventlet")
 
 # 设定数据库链接
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://{}:{}@{}/flask_demo'.format(config.username, config.password,
