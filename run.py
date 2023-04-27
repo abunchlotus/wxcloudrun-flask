@@ -6,4 +6,4 @@ from wxcloudrun import app
 
 # 启动Flask Web服务
 if __name__ == '__main__':
-    socketio.run(app, host=sys.argv[1], port=sys.argv[2])
+    socketio.run(app, host="127.0.0.1", port=8886)
