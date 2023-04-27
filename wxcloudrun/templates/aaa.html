@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var socket = io.connect("http://127.0.0.1:8886");
+            var socket = io.connect("http://127.0.0.1:80");
 
             socket.on("on_open", function(msg) {
                 console.log("on_open: " + msg);
