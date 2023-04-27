@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import render_template, request
-from run import app
+from run import socketio
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
@@ -8,7 +8,7 @@ from wxcloudrun import send_requests
 import logging
 logger = logging.getLogger('log')
 
-@app.route('/')
+@socketio.route('/')
 def index():
     """
     :return: 返回index页面
@@ -16,7 +16,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api/count', methods=['POST'])
+@socketio.route('/api/count', methods=['POST'])
 def count():
     """
     :return:计数结果/清除结果
@@ -65,7 +65,7 @@ def count():
         return make_err_response('action参数错误')
 
 
-@app.route('/api/count', methods=['GET'])
+@socketio.route('/api/count', methods=['GET'])
 def get_count():
     """
     :return: 计数的值
@@ -74,7 +74,7 @@ def get_count():
     return make_succ_response(0) if counter is None else make_succ_response(counter.count)
 
 
-@app.route("/api/gpt-3", methods=["POST"])
+@socketio.route("/api/gpt-3", methods=["POST"])
 def generate_text():
     logger.info("entry")
     data = request.get_json()
