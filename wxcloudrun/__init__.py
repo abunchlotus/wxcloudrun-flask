@@ -11,13 +11,13 @@ pymysql.install_as_MySQLdb()
 app = Flask(__name__, instance_relative_config=True)
 app.config['DEBUG'] = config.DEBUG
 socketio = SocketIO(app, async_mode="eventlet")
-
-# 设定数据库链接
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://{}:{}@{}/flask_demo'.format(config.username, config.password,
-                                                                             config.db_address)
-
-# 初始化DB操作对象
-db = SQLAlchemy(app)
+#
+# # 设定数据库链接
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://{}:{}@{}/flask_demo'.format(config.username, config.password,
+#                                                                              config.db_address)
+#
+# # 初始化DB操作对象
+# db = SQLAlchemy(app)
 
 # 加载控制器
 from wxcloudrun import views
